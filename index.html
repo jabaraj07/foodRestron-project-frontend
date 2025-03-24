@@ -68,9 +68,9 @@
           </div>
         </div>
 
-        <div class="col-lg-6">
+        <div class="col-lg-6" style="margin: 0;padding: 0">
           <div id="demo" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner" >
+            <div class="carousel-inner">
 
               <div class="carousel-item active">
                 <img src="https://www.godubrovnik.com/wp-content/uploads/pizza.jpg" >
@@ -166,7 +166,7 @@
       </div>
     </div>
 
-    <div class="container-fluid d-flex flex-column justify-content-center " style="height: 100vh;" id="third-page">
+    <div class="container-fluid d-flex flex-column justify-content-center " style="height: 100vh;margin-top: 100px;" id="third-page">
 
       <div>
         <h3 style="text-align: center;font-family:serif;"class="text-warning">Food Menu</h3>
@@ -232,10 +232,10 @@
                 <input type="number" class="form-control" id="people" placeholder="Enter People" required>
               </div>
   
-              <button type="submit" class="btn btn-primary btn-block">Book Now</button>
+              <button type="submit" class="btn btn-primary btn-block" style="margin-left: 10px;">Book Now</button>
             </form>
 
-            <div id="message"></div>
+            <div id="message" style="text-align: center;"></div>
   
           </div>
         <!-- </div> -->
@@ -333,7 +333,7 @@
 
       <!-- <div > -->
         <footer id="footer-content">
-          <div style="background-color: #333;height: 100%;">
+          <div >
 
           <div class="footer-div">
 
@@ -372,7 +372,7 @@
                   <h1>CONTACT</h1>
                 </div>
 
-                <div style="height: 80%;">
+                <div >
                   <div class="footer-2-content">
                     <i style="margin-top: 8px;font-size: 25px;" class="fa-solid fa-location-dot"></i>
                     <p style="font-size: 25px;margin-left: 15px;">Chennai</p>
@@ -440,9 +440,21 @@
 
 
     <script src="./script.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script>
+          ScrollReveal({
+        reset:true,
+        duration:1000,
+        delay:400,
+        distance:'60px'
+      })
+      ScrollReveal().reveal('.first-page-content',{ delay: 1200,origin:'left'})
+      ScrollReveal().reveal('.img-1',{ delay: 1200,origin:'left',interval:550})
+      ScrollReveal().reveal('.card-heading',{ delay: 1200,origin:'left'})
+      ScrollReveal().reveal('.chef-card-1',{ delay: 1200,origin:'left',interval:500})
+    </script>
   </body>
 </html>
-<!-- https://www.free-css.com/free-css-templates/page290/restoran -->
 
 
 

@@ -1,6 +1,7 @@
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 .image-column{
     display: flex;
@@ -108,6 +109,11 @@
     height: 100vh;
     object-fit: cover;
 }
+/* .carousel{
+    position: absolute;
+    right: 0;
+    right: 0;
+} */
 .carousel-control-prev-icon,.carousel-control-next-icon{
     border-radius: 50%;
     background-color: black;
@@ -183,7 +189,7 @@
     justify-content: center;
     flex-wrap: wrap;
     width: 600px;
-    height: 550px;
+    height: 500px;
     gap: 10px;
     /* background-color: rgb(148, 144, 152); */
 }
@@ -221,19 +227,11 @@
     margin-top: 5px;
     width: 70%;
 }
-.footer-1{
-    /* background-color: red; */
-    width: 250px;
+
+.footer-2,.footer-3,.footer-4,.footer-1{
     height: 250px;
-    /* display: flex;
-    flex-direction: column;
-    text-align: center;
-    justify-content: center;
-    text-align: center; */
-}
-.footer-2,.footer-3,.footer-4{
-    height: 250px;
-    width: 250px;
+    width: 255px;
+    /* background-color: aqua; */
 }
 .footer-1-content:hover{
     transform: scale(1.1);
@@ -242,11 +240,11 @@
 }
 .footer-2-heading{
     height: 20%;
-    text-align: center;
+    /* text-align: center; */
 }
 .footer-2-content{
     display: flex;
-    margin-left: 35px;
+    margin-left: 5px;
 }
 .footer-icon-content{
     /* background-color: aqua; */
@@ -305,6 +303,11 @@
     align-items: center;
     color: white;
 }
+#footer-content{
+    background-color: rgb(57, 54, 54);
+    position: absolute;
+    width: 100%;
+}
 @keyframes rotateinfinite {
     0% {
         transform: rotate(0deg);
@@ -323,14 +326,14 @@
 }
 @media screen and (max-width:990px) {
     .four-img{
-        height: 45%;
+        height: 60%;
         /* display: none; */
-        /* background-color: rgb(55, 55, 239); */
-        margin-top: 20px;
+        /* background-color: rgb(55, 55, 239);   */
+        margin-top: 0px;
     }
     .img-1 img{
-        height: 170px;
-        width: 280px;
+        height: 230px;
+        width: 250px;
         object-fit: fill;
     }
     .about{
@@ -363,7 +366,7 @@
 }
 @media screen and (max-width:600px){
     .img-1 img{
-        height: 160px;
+        height: 200px;
         width: 180px;
         object-fit: fill;
     }
@@ -391,8 +394,8 @@
         height: 400px;
     }
     .img-1 img{
-        height: 140px;
-        width: 160px;
+        height: 180px;
+        width: 170px;
         object-fit: fill;
     }
     .chef-card{

@@ -379,8 +379,6 @@ function showproduct(item){
     document.getElementById('modalProductHealth').innerText = item.healthBenefits;
     document.getElementById('modalProductNutrition').innerText = item.nutritionLevel;
 
-
-
     const modal = document.getElementById('productmodal')
     modal.style.display="flex";
 }
@@ -448,17 +446,20 @@ tableform.addEventListener('submit',async(e)=>{
             const messagediv = document.createElement('div')
             messagediv.innerHTML=
             `
-            <h1>User Registered Successfully</h1>
+            <p>Your Table Booked.</p>
             `
             message.appendChild(messagediv)
             // message.innerHTML = "user registered"
             setTimeout(()=>{
                 messagediv.innerHTML=""
             },5000)
+
+            alert("Your Table Booked Successfully..")
         }
         else{
             const errordata = await respone.json();
             console.log(errordata.message);  
+            alert("This Slot Already Booked So Try Again..")
         }
     }catch(err){
         console.log(err);
@@ -467,59 +468,3 @@ tableform.addEventListener('submit',async(e)=>{
 
 
 
-{/* <form id="reservationForm">
-    <label for="name">Name:</label>
-    <input type="text" id="name" name="name" required><br>
-
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" required><br>
-
-    <label for="date">Reservation Date:</label>
-    <input type="date" id="date" name="date" required><br>
-
-    <label for="time">Reservation Time:</label>
-    <input type="time" id="time" name="time" required><br>
-
-    <label for="count">Number of Persons:</label>
-    <input type="number" id="count" name="count" required><br>
-
-    <button type="submit">Submit</button>
-</form>
-
-<p id="errorMessage" style="color:red; display:none;">This time slot is already taken. Please choose another time.</p>
-
-<script>
-document.getElementById('reservationForm').addEventListener('submit', function(event) {
-    event.preventDefault();  // Prevent form submission
-
-    const formData = {
-        name: document.getElementById('name').value,
-        email: document.getElementById('email').value,
-        date: document.getElementById('date').value,
-        time: document.getElementById('time').value,
-        count: document.getElementById('count').value
-    };
-
-    // Send form data to the backend
-    fetch('/api/reservation', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(formData)
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.error) {
-            document.getElementById('errorMessage').style.display = 'block';
-            document.getElementById('errorMessage').textContent = data.error;
-        } else {
-            alert("Reservation successful!");
-        }
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        alert("An error occurred. Please try again.");
-    });
-});
-</script> */}
