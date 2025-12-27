@@ -1,4 +1,4 @@
-const meals = {
+export const meals = {
     breakfast: [
         {
             name: 'Pancakes',
@@ -171,7 +171,7 @@ const meals = {
             name: 'Veggie Wrap',
             description: 'A healthy wrap filled with fresh vegetables.',
             price: '$7.99',
-            img: 'https://www.goya.com/media/3677/grilled-vegetable-wrap1.jpg?quality=80',
+            img: 'https://www.nutritionforme.org/wp-content/uploads/2021/10/Veggie-Wraps.jpg',
             ingredients: 'Lettuce, tomatoes, cucumbers, avocado, hummus, tortilla',
             rating: 4.6,
             stock: 'In Stock',
@@ -336,135 +336,3 @@ const meals = {
         }
     ]
 };
-
-
-
-
-function displayitems(mealtype){
-    const itemlist = document.getElementById('itemlist');
-    itemlist.innerHTML = '';
-    meals[mealtype].forEach(item=>{
-        const mealitemdiv = document.createElement('div');
-        mealitemdiv.className = 'meal-item';
-        mealitemdiv.innerHTML =
-        `
-                    <img src="${item.img}" alt="${item.name}">
-                    <div>
-                        <h5 class="mb-1">${item.name}</h5>
-                        <p class="mb-1">${item.description}</p>
-                        <p><strong>${item.price}</strong></p>
-                    </div>
-        `;
-        itemlist.appendChild(mealitemdiv)
-        mealitemdiv.addEventListener('click',()=>showproduct(item))
-    })
-}
-
-document.getElementById('book-table-btn').addEventListener("click",function(){
-    document.getElementById('book-form-sec').scrollIntoView({behavior:"smooth"})
- })
-
- document.getElementById('book-table-btn1').addEventListener("click",function(){
-    document.getElementById('book-form-sec').scrollIntoView({behavior:"smooth"})
- })
-
-function showproduct(item){
-    document.getElementById('modalproductimage').src = item.img;
-    document.getElementById('modalproductname').innerText = item.name;
-    document.getElementById('modalproductdiscp').innerText = item.description;
-    document.getElementById('modalProductPrice').innerText = item.price;
-    document.getElementById('modalProductIngredients').innerText = item.ingredients;
-    document.getElementById('modalProductRating').innerText = item.rating+"/5";
-    document.getElementById('modalProductStock').innerText = item.stock;
-    document.getElementById('modalProductHealth').innerText = item.healthBenefits;
-    document.getElementById('modalProductNutrition').innerText = item.nutritionLevel;
-
-    const modal = document.getElementById('productmodal')
-    modal.style.display="flex";
-}
-
-document.getElementById('modalclosebtn').addEventListener('click',function(){
-    document.getElementById('productmodal').style.display='none';
-})
-document.getElementById('breakfastbtn').addEventListener('click',function(){
-    setactivebutton(this);
-    displayitems('breakfast')
-})
-
-document.getElementById('lunchbtn').addEventListener('click',function(){
-    setactivebutton(this);
-    displayitems('lunch')
-})
-
-document.getElementById('dinnerbtn').addEventListener('click',function(){
-    setactivebutton(this);
-    displayitems('dinner')
-})
-
-function setactivebutton(activebutton){
-    const buttons = document.querySelectorAll('.btn-group button')
-    buttons.forEach(button=>{
-        button.classList.remove('active')
-    })
-    activebutton.classList.add('active')
-}
-displayitems('breakfast')
-
-const tableform = document.getElementById('table-form')
-
-tableform.addEventListener('submit',async(e)=>{
-    e.preventDefault();
-
-    const name = document.getElementById('name').value
-    const email = document.getElementById('email').value
-    const date = document.getElementById('datetime').value
-    const people = document.getElementById('people').value
-    const message = document.getElementById('message')
-
-    const data = {
-        username : name,
-        useremail: email,
-        userdate : date,
-        usercount : people
-    }
-
-    try{
-        const respone = await fetch('http://localhost:8080/api/register',{
-            method:'POST',
-            headers:{
-                'Content-Type':'application/json'
-            },
-            body:JSON.stringify(data),
-        });
-        if(respone.ok){
-            console.log("user registered")
-            document.getElementById('name').value="";
-            document.getElementById('email').value="";
-            document.getElementById('datetime').value="";
-            document.getElementById('people').value="";
-
-            const messagediv = document.createElement('div')
-            messagediv.innerHTML=
-            `
-            <p>Your Table Booked.</p>
-            `
-            message.appendChild(messagediv)
-            // message.innerHTML = "user registered"
-            setTimeout(()=>{
-                messagediv.innerHTML=""
-            },5000)
-
-            alert("Your Table Booked Successfully..")
-        }
-        else{
-            const errordata = await respone.json();
-            console.log(errordata.message);  
-            alert("This Slot Already Booked So Try Again..")
-        }
-    }catch(err){
-        console.log(err);
-    }
-})
-
-
-

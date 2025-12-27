@@ -1,0 +1,75 @@
+/* .footer-2,.footer-3,.footer-4,.footer-1{
+    height: 250px;
+    width: 255px;
+}
+.footer-1-content:hover{
+    transform: scale(1.1);
+    transition: transform 0.5s ease-in-out;
+    cursor: pointer;
+}
+.footer-2-heading{
+    height: 20%;
+}
+.footer-2-content{
+    display: flex;
+    margin-left: 5px;
+}
+.footer-icon-content{
+    display: flex;
+    justify-content: space-around;
+    margin-left: 20px;
+}
+.footer-icon-content > i {
+    margin-top: 8px;
+    font-size: 25px;
+    color: white;
+    border-radius: 50%;
+    border: 2px solid rgb(243, 175, 4);
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.footer-icon-content > i:hover{
+    color: rgb(250, 2, 2);
+    transition: color 0.3s ease-in-out;
+    cursor: pointer;
+}
+.footer-4-content{
+    position: relative;
+    height: 80%;
+}
+.footer-4-content > input{
+    height: 50px;
+    width: 100%;
+}
+.footer-4-content > button{
+    position: absolute;
+    top: 135px;
+    right: 5px;
+    width: 100px;
+    height: 30px;
+    background-color: orange;
+    font-weight: bold;
+    border-radius: 5px;
+}
+.footer-4-content > button:hover{
+    background-color: black;
+    color: white;
+}
+.footer-div{
+    width: 100%;
+    height: 400px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: center;
+    color: white;
+} */
+/* #footer-content{
+    background-color: rgb(57, 54, 54);
+    position: absolute;
+    width: 100%;
+} */
